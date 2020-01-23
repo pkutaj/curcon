@@ -9,9 +9,11 @@
 /* REQUIRES */
 const http = require("http");
 const https = require("https");
-const ui = require("./ui.js")
+const consoleInput = require("./ui/consoleInput.js")
+const codeFileInput = require("./ui/codeFileExchangeInput.js")
+
 /* test */
-console.log(ui.exchangeInput("console"));
+console.log(codeFileInput);
 
 /* INITS */
 
@@ -31,32 +33,33 @@ function curConverter(amountExchanged, exchangeRate) {
 try {
 
     /* 1. GET RESPONSE */
-    const request = https.get(`https://api.exchangeratesapi.io/latest?base=${transactionCurrency}`, response => {
+    const request = https.get(`https://api.exchangeratesapi.io/latest?base=${codeFileInput.transactionCurrency}`, response => {
         /* ERROR-4 HTTP STATUS ERRORS */
         if (response.statusCode === 200) {
-        /* 2. EXTRACT PAYLOAD */
-        let responsePayload = "";
-        response.on("data", data => {
-            responsePayload += data.toString();
-        })
+            /* 2. EXTRACT PAYLOAD */
+            let responsePayload = "";
+            response.on("data", data => {
+                responsePayload += data.toString();
+            })
 
-        response.on("end", () => {
+            response.on("end", () => {
 
-            /* 3. PARSE PAYLOAD */
-            /* ERROR-3 PARSE ERROR */
-            try {
+                /* 3. PARSE PAYLOAD */
+                /* ERROR-3 PARSE ERROR */
+                try {
 
-                const parsedResponsePayload = JSON.parse(responsePayload);
-                let exchangeRate = parsedResponsePayload.rates[counterCurrency];
+                    const parsedResponsePayload = JSON.parse(responsePayload);
+                    let exchangeRate = parsedResponsePayload.rates[codeFileInput.counterCurrency];
 
-                /* 4. DO THE WORK (SERVICE) */
-                console.log(`for ${amountExchanged} ${transactionCurrency} you receive ` + curConverter(amountExchanged, exchangeRate) + " " + counterCurrency);
+                    /* 4. DO THE WORK (SERVICE) */
+                    console.log(`for ${codeFileInput.amountExchanged} ${codeFileInput.transactionCurrency} you receive ` + curConverter(codeFileInput.amountExchanged, exchangeRate) + " " + codeFileInput.counterCurrency);
 
-            } catch (parseError) {
-                handleErrors(parseError)
-            }
-        })
-    }}
+                } catch (parseError) {
+                    handleErrors(parseError)
+                }
+            })
+        }
+    }
     )
     /* ERROR-1: request errors */
     request.on("error", handleErrors);
