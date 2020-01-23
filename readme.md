@@ -42,7 +42,7 @@ The aim of this project is to:
 ### QA
 ?                     | !   | ~45
 ----------------------|-----|----
-> GIT > upload        | !!! | 15
+GIT > upload          | !!! | 15
 - [ ] > PS-CORE > OSX | !!  | 30
 
 ### MNTC
