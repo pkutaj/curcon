@@ -1,4 +1,4 @@
-# The DRY & SOLID CurCon.JS
+# The DRY & SOLID Currency Converter
 # PURPOSE
 The aim of this project is to:
   - [x] write a currency converter
@@ -27,10 +27,10 @@ The aim of this project is to:
 
 ## QUEUE
 ### FE
-?                               | !  | ~195
---------------------------------|----|-----
-- [ ] > PS-console-vs-csv-input | !! | 180
-- [ ] > PS-ASCII                | !! | 15
+?                         | !  | ~195
+--------------------------|----|-----
+> PS-console-vs-csv-input | !! | 180
+- [ ] > PS-ASCII          | !! | 15
 
 ### BE
 ?                                   | !   | ~405
@@ -42,7 +42,7 @@ The aim of this project is to:
 ### QA
 ?                     | !   | ~45
 ----------------------|-----|----
-- [ ] > GIT > upload  | !!! | 15
+> GIT > upload        | !!! | 15
 - [ ] > PS-CORE > OSX | !!  | 30
 
 ### MNTC
