@@ -8,3 +8,28 @@ The aim of this project is to:
   - [x] have a web application UI
 
 ## instructions
+
+## to-do list
+<!-- TOC -->
+
+- [Front-End](#front-end)
+- [Back-End](#back-end)
+- [QA](#qa)
+- [Maintenance](#maintenance)
+
+<!-- /TOC -->
+### Front-End
+- [ ] > PS-console-vs-csv-input 
+- [ ] > PS-ASCII                
+
+### Back-End
+- [ ] > INPUT > Event emitters          
+- [ ] > API-implementation              
+- [ ] > WEB > build web-server          
+- [x] > SWITCH-remove, ~~polymorphism~~ 
+
+### QA
+- [x] GIT > upload 
+- [ ] > PS-CORE > OSX
+
+### Maintenance
