@@ -18,5 +18,6 @@ The aim of this project is to:
   * see <http://pavol.kutaj.com/2020/01/06/PS-set-permissions-ornaments.html> for the example of that solution
 * there could be a possibility to point the script to the `.csv` file to iterate over and create an appended copy with the current conversion rate / result
 
-## inspiration
-* [Agile Tour 2017 Sherbrooke - Keynote with Uncle Bob](https://www.youtube.com/watch?v=VY4LYd2YfBk)
+## sources
+* [Foreign exchange rates API](https://exchangeratesapi.io/)
+* inspiration by [Agile Tour 2017 Sherbrooke - Keynote with Uncle Bob](https://www.youtube.com/watch?v=VY4LYd2YfBk)
