@@ -6,7 +6,7 @@ The aim of this project is to:
   - [x] follow the DRY and SOLID principles of clean code
   - [x] have a command line UI
   - [x] separate the UI layer from the main program and support an easy addition / removal of various types of input mechanisms (console, input into sourcefile, csv files)
-  - [ ] have a web application UI
+  - [ ] have a **web application** UI / layer
 
 ## instructions
 * you need to have node installed
