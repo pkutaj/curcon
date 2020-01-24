@@ -1,69 +1,41 @@
-/* GEPARD 
- * 
- * 
- *
- *
- *
- *
- */
-/* REQUIRES */
 const http = require("http");
 const https = require("https");
-const consoleInput = require("./ui/consoleInput.js")
-const codeFileInput = require("./ui/codeFileExchangeInput.js")
-
-/* test */
-console.log(codeFileInput);
-
-/* INITS */
-
-
-/* ERROR-HANDLER */
+const events = require("events");
+const consolidatedInput = require("./ui/consolidatedInput")
 const handleErrors = error => console.error(`Hello, there is a problem: ${error.message}`);
 
-/*4. DO THE WORK FUNCTION */
 function curConverter(amountExchanged, exchangeRate) {
-    /* 4.1 PARSE */
     let finalResult = parseFloat(amountExchanged) * parseFloat(exchangeRate);
-    /* 4.2 ROUND & RETURN */
     return finalResult.toFixed(2);
 }
 
-/* ERRROR-2 GENERAL HANDLER */
-try {
-
-    /* 1. GET RESPONSE */
-    const request = https.get(`https://api.exchangeratesapi.io/latest?base=${codeFileInput.transactionCurrency}`, response => {
-        /* ERROR-4 HTTP STATUS ERRORS */
-        if (response.statusCode === 200) {
-            /* 2. EXTRACT PAYLOAD */
-            let responsePayload = "";
-            response.on("data", data => {
-                responsePayload += data.toString();
-            })
-
-            response.on("end", () => {
-
-                /* 3. PARSE PAYLOAD */
-                /* ERROR-3 PARSE ERROR */
-                try {
-
-                    const parsedResponsePayload = JSON.parse(responsePayload);
-                    let exchangeRate = parsedResponsePayload.rates[codeFileInput.counterCurrency];
-
-                    /* 4. DO THE WORK (SERVICE) */
-                    console.log(`for ${codeFileInput.amountExchanged} ${codeFileInput.transactionCurrency} you receive ` + curConverter(codeFileInput.amountExchanged, exchangeRate) + " " + codeFileInput.counterCurrency);
-
-                } catch (parseError) {
-                    handleErrors(parseError)
-                }
-            })
+consolidatedInput.forEach(inputRecord => {
+    try {
+        const request = https.get(`https://api.exchangeratesapi.io/latest?base=${inputRecord.transactionCurrency}`, response => {
+            if (response.statusCode === 200) {
+                let responsePayload = "";
+                response.on("data", data => {
+                    responsePayload += data.toString();
+                })
+                response.on("end", () => {
+                    try {
+                        const parsedResponsePayload = JSON.parse(responsePayload);
+                        let exchangeRate = parsedResponsePayload.rates[inputRecord.counterCurrency];
+                        console.log(`for ${inputRecord.amountExchanged} ${inputRecord.transactionCurrency} you receive ` + curConverter(inputRecord.amountExchanged, exchangeRate) + " " + inputRecord.counterCurrency);
+                    } catch (parseError) {
+                        handleErrors(parseError)
+                    }
+                })
+            } else {
+                const currentStatusCode = response.statusCode;
+                const HTTPStatus = `${currentStatusCode}: ${http.STATUS_CODES.currentStatusCode}`;
+                const HTTPStatusCodeError = new Error(`There was an HTTP ${HTTPStatus} error)`);
+                handleErrors(HTTPStatusCodeError);
+            }
         }
-    }
-    )
-    /* ERROR-1: request errors */
-    request.on("error", handleErrors);
-
-} catch (generalError) {
-    handleErrors(generalError)
-};
+        )
+        request.on("error", handleErrors);
+    } catch (generalError) {
+        handleErrors(generalError)
+    };
+})
