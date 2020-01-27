@@ -8,6 +8,10 @@ The aim of this project is to:
   - [x] separate the UI layer from the main program and support an easy addition / removal of various types of input mechanisms (console, input into sourcefile, csv files)
   - [ ] have a **web application** UI / layer
 
+* the idea of the code is to allow as many UIs as possible via the proper separation of the service and UI layer via the proper use of principles of OOP, DRY and SOLID
+
+* this is a **rough sketch**
+
 ## instructions
 * download, navigate to `./ui > powershell` and run `curcon.bat`
   * **node is required to have on client**
@@ -16,7 +20,7 @@ The aim of this project is to:
 * currently, it's running on windows-based powershell, the idea would be to **use powershell-core to have this cross-platform**
 * if for any reason you'd like to put the variable inside of the source code, navigate to `sourceFileInput.js` and see the commented section
 
-## demo
+## demo for the PS UI
 ![powershell_ui](2020-01-27-currency-converter.gif)
 
 ## next-features
