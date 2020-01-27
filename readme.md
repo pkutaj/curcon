@@ -20,6 +20,7 @@ The aim of this project is to:
 ![powershell_ui](2020-01-27-currency-converter.gif)
 
 ## next-features
+* proper data-validation for the front-end (only .toUpper() applied)
 * proper browser-based UI module
 * have node running on a remote-server and call that script remotely to remove dependencies
 * there could be a possibility to point the script to the `.csv` file to iterate over and create an appended copy with the current conversion rate / result
