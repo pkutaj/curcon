@@ -1,0 +1,1 @@
+start powershell -noexit "& "".\curcon.ps1"""; exit
