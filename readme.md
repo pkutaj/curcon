@@ -9,8 +9,9 @@ The aim of this project is to:
   - [ ] have a **web application** UI / layer
 
 ## instructions
-* **node is required to have on client**
-* **still windows-based, powershell front-end**
+* download, navigate to `./ui > powershell` and run `curcon.bat`
+  * **node is required to have on client**
+  * **still windows-based, powershell front-end**
 * you need to have node installed
 * currently, it's running on windows-based powershell, the idea would be to **use powershell-core to have this cross-platform**
 * if for any reason you'd like to put the variable inside of the source code, navigate to `sourceFileInput.js` and see the commented section
@@ -20,6 +21,7 @@ The aim of this project is to:
 
 ## next-features
 * proper browser-based UI module
+* have node running on a remote-server and call that script remotely to remove dependencies
 * there could be a possibility to point the script to the `.csv` file to iterate over and create an appended copy with the current conversion rate / result
 
 ## sources
