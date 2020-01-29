@@ -6,6 +6,7 @@ The aim of this project is to:
   - [x] follow the DRY and SOLID principles of clean code
   - [x] have a command line UI with powershell
   - [x] separate the UI layer from the main program and support an easy addition / removal of various types of input mechanisms (console, input into sourcefile, csv files)
+  - [x] data-validation for the front-end input, checking the currency keys against an array from the requested JSON 
   - [ ] have a **web application** UI / layer
 
 * the idea of the code is to allow as many UIs as possible via the proper separation of the service and UI layer via the proper use of principles of OOP, DRY and SOLID
@@ -23,11 +24,10 @@ The aim of this project is to:
 ## demo for the PS UI
 ![powershell_ui](2020-01-27-currency-converter.gif)
 
-## next-features
-* proper data-validation for the front-end (only .toUpper() applied)
-* proper browser-based UI module
-* have node running on a remote-server and call that script remotely to remove dependencies
-* there could be a possibility to point the script to the `.csv` file to iterate over and create an appended copy with the current conversion rate / result
+## todo
+- [ ] **web server:** Node
+- [ ] **web UI:** maybe jQuery, but possibly no library or framework, plain stuff
+- [ ] **csv input type** could be a possibility to point the script to the `.csv` file to iterate over and create an appended copy with the current conversion rate / result
 
 ## sources
 * [Foreign exchange rates API](https://exchangeratesapi.io/)

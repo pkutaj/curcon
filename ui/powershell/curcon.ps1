@@ -13,6 +13,7 @@ $intro = @"
  \____/  
 "@
 
+
 <# FUNCTION #>
 function curCon {
     param(
@@ -65,14 +66,29 @@ Pause
 Clear-Host
 
 <# MENU #>
-$latestRates = Invoke-WebRequest -method GET https://api.exchangeratesapi.io/latest;
+
+$exchangeRateListBase = "EUR"
+$today = Get-Date -Format "dd.MM.yyyy"
+$latestRates = Invoke-WebRequest -method GET "https://api.exchangeratesapi.io/latest/?base=$exchangeRateListBase";
 $latestRatesParsed = $latestRates | ConvertFrom-Json;
 $output = $latestRatesParsed.rates | Out-String
-$currencyKeys = $latestRatesParsed.rates | Get-Member -type NoteProperty | Select-Object Name
+$exchangeRateList = @"
+  ____  
+ / __ \  THE EXCHANGE RATE
+/ /  \ \ BASE CURRENCY: $exchangeRateListBase
+\ \__/ / DATE: $today
+ \____/ 
 
+$output
+
+"@
+
+$currencyKeysReadOnly = $latestRatesParsed.rates | Get-Member -type NoteProperty | Select-Object Name
+[System.Collections.ArrayList]$currencyKeys = $currencyKeysReadOnly
+$currencyKeys.Add(@{Name=$exchangeRateListBase})
 
 #S3 BIND THE INPUT
-Write-Host $output -ForegroundColor Cyan 
+Write-Host $exchangeRateList -ForegroundColor Cyan 
 while ($true) {
     curcon
 }
