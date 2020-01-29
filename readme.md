@@ -26,6 +26,7 @@ The aim of this project is to:
 
 ## todo
 - [ ] **web server:** Node
+  * routing should be inspired by the syntax of [time.is](http://time.is) so you could run the queries directly in the address bar (`for.ex/list/eur` or `foo.bar/convert/1000/eur/czk`)
 - [ ] **web UI:** maybe jQuery, but possibly no library or framework, plain stuff
 - [ ] **csv input type** could be a possibility to point the script to the `.csv` file to iterate over and create an appended copy with the current conversion rate / result
 
