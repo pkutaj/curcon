@@ -7,8 +7,9 @@
  * 
  */
 
-const codeFileInput = require("./sourceFileInput.js")
+const codeFileInput = require("./sourceFileInput");
 const consoleInput = require("./consoleInput");
+//const webInput = require("./webInput");
 
 let consolidatedInput = [];
 function addToConsolidatedInput(input) {
@@ -17,4 +18,5 @@ function addToConsolidatedInput(input) {
 }
 addToConsolidatedInput(codeFileInput);
 addToConsolidatedInput(consoleInput);
+//addToConsolidatedInput(webInput);
 module.exports = consolidatedInput;
