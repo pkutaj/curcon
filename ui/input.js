@@ -3,7 +3,7 @@ class Input extends EventEmitter {
     constructor() {
         super();
         this.on("input", (input) => {
-            this.transactionCurrency = input.transactionCurrency;
+            this._transactionCurrency = input.transactionCurrency;
             this._counterCurrency = input.counterCurrency;
             this._amountExchanged = input.amountExchanged;
         })
