@@ -4,7 +4,8 @@ const handleErrors = require("./errorHandler")
 
 consolidatedInput.forEach(inputRecord => {
     try {
-        service.getRates(inputRecord)
+        let forexResultPromise = service.getRates(inputRecord)
+        forexResultPromise.then()
     } catch (generalError) {
         handleErrors(generalError)
     };

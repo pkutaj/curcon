@@ -45,11 +45,13 @@ function exchangeRoute(req, res) {
 
 function globalRouter(req, res) {
   if(req.url === "/favicon.ico") return res.end();
+
   var inputMessage = req.url.split("/")
   console.log(inputMessage)
   let webInput = normaliseWebInput(inputMessage);
   input.emit("input", webInput);
   module.exports = input;
+  
   if (req.url === "/") homeRoute(req, res);
   else exchangeRoute(req,res)
 };
