@@ -7,7 +7,7 @@ The aim of this project is to:
   - [x] have a command line UI with powershell
   - [x] separate the UI layer from the main program and support an easy addition / removal of various types of input mechanisms (console, input into sourcefile, csv files)
   - [x] data-validation for the front-end input, checking the currency keys against an array from the requested JSON 
-  - [ ] have a **web application** UI / layer 🠊 never done
+  - [ ] have a **web application** UI / layer
 
 * the idea of the code is to allow as many UIs as possible via the proper separation of the service and UI layer via the proper use of principles of OOP, DRY and SOLID
 
