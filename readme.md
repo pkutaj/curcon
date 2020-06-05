@@ -1,8 +1,6 @@
 # The DRY & SOLID Currency Converter
 ## purpose
 
-> this is added just for fun
-
 The aim of this project is to:
   - [x] write a currency converter
   - [x] use Node.Js on the back end
