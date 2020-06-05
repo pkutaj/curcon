@@ -1,4 +1,5 @@
 # The DRY & SOLID Currency Converter
+**THIS LINE IS HEAR FOR THE SAKE OF THIS EXERCISE**
 ## purpose
 
 The aim of this project is to:
